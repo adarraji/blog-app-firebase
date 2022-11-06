@@ -8,8 +8,8 @@ const Login = () => {
     <Container>
       <Header>Login</Header>
       <Form>
-        <Input type="text" placeholder="username" />
-        <Input type="password" placeholder="password" />
+        <Input required type="text" placeholder="username" />
+        <Input required type="password" placeholder="password" />
         <Button>Login</Button>
         <Error>This is an error!</Error>
         <LinkToPage>
