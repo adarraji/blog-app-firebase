@@ -1,6 +1,34 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import LogoImage from "../img/logo.png"
+
+const linkList = [
+  {
+    path: "/?cat=art",
+    title: "ART"
+  },
+  {
+    path: "/?cat=science",
+    title: "SCIENCE"
+  },
+  {
+    path: "/?cat=technology",
+    title: "TECHNOLOGY"
+  },
+  {
+    path: "/?cat=cinema",
+    title: "CINEMA"
+  },
+  {
+    path: "/?cat=design",
+    title: "DESIGN"
+  },
+  {
+    path: "/?cat=food",
+    title: "FOOD"
+  }
+];
 
 const Navbar = () => {
   return (
@@ -8,27 +36,18 @@ const Navbar = () => {
       <Wrapper>
         <Logo>
           <Link to="/" />
-          <Image src="https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png" />
+          <Image src={LogoImage} />
         </Logo>
         <Links>
-          <Link to="/?cat=art">
-            <LinkHeader>ART</LinkHeader>
-          </Link>
-          <Link to="/?cat=science">
-            <LinkHeader>SCIENCE</LinkHeader>
-          </Link>
-          <Link to="/?cat=technology">
-            <LinkHeader>TECHNOLOGY</LinkHeader>
-          </Link>
-          <Link to="/?cat=cinema">
-            <LinkHeader>CINEMA</LinkHeader>
-          </Link>
-          <Link to="/?cat=design">
-            <LinkHeader>DESIGN</LinkHeader>
-          </Link>
-          <Link to="/?cat=food">
-            <LinkHeader>FOOD</LinkHeader>
-          </Link>
+          {
+            linkList.map((item, index) => {
+              return (
+                <Link to={item.path} key={index}>
+                  <LinkHeader>{item.title}</LinkHeader>
+                </Link>
+              )
+            })
+          }
         </Links>
       </Wrapper>
     </Container>
