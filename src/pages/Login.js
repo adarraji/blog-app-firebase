@@ -11,6 +11,7 @@ const Login = () => {
         <Input type="text" placeholder="username" />
         <Input type="password" placeholder="password" />
         <Button>Login</Button>
+        <Error>This is an error!</Error>
         <LinkToPage>
           Don't have an account ? <Link to="register">Register</Link>
         </LinkToPage>
@@ -58,6 +59,12 @@ const Button = styled.button`
 
 const LinkToPage = styled.span`
   font-size: 12px;
+  text-align: center;
+`;
+
+const Error = styled.p`
+  font-size: 12px;
+  color: red;
   text-align: center;
 `;
 
