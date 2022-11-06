@@ -1,22 +1,46 @@
-import "./App.css";
-import Register from "./pages/Register";
-import Login from "./pages/Register";
-// import Home from "./pages/Register";
-// import Single from "./pages/Register";
-// import Write from "./pages/Register";
-
-
 import {
   createBrowserRouter,
   RouterProvider,
   Route,
+  Outlet,
 } from "react-router-dom";
+import "./App.css";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+import Home from "./pages/Home";
+import Single from "./pages/Single";
+import Write from "./pages/Write";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
+const Layout = () => {
+  return (
+    <>
+      <Navbar />
+      <Outlet />
+      <Footer />
+    </>
+  )
+}
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>Home!</div>,
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: <Home />
+      },
+      {
+        path: "/single",
+        element: <Single />
+      },
+      {
+        path: "/write",
+        element: <Write />
+      }
+    ],
     errorElement: <h1>404 Not Found</h1>
   },
   {
@@ -36,5 +60,7 @@ function App() {
     </div>
   );
 }
+
+
 
 export default App;
