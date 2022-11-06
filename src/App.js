@@ -65,8 +65,8 @@ function App() {
 
 
 const AppContainer = styled.div`
-  display: flex;
-  justify-content: center;
+  /* display: flex;
+  justify-content: center; */
 `;
 
 const Container = styled.div`
