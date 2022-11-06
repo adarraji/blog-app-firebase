@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 
@@ -10,6 +11,9 @@ const Login = () => {
         <Input type="text" placeholder="username" />
         <Input type="password" placeholder="password" />
         <Button>Login</Button>
+        <LinkToPage>
+          Don't have an account ? <Link to="register">Register</Link>
+        </LinkToPage>
       </Form>
     </Container>
   )
@@ -50,6 +54,11 @@ const Button = styled.button`
   background-color: teal;
   color: white;
   cursor: pointer;
+`;
+
+const LinkToPage = styled.span`
+  font-size: 12px;
+  text-align: center;
 `;
 
 export default Login;
