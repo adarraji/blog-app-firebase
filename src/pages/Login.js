@@ -1,8 +1,9 @@
-import React from "react"
+import React from "react";
+import { Auth } from "../Common-Styled";
 
 const Login = () => {
   return (
-    <div>Login</div>
+    <Auth>Login</Auth>
   )
 }
 

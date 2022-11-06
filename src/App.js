@@ -11,6 +11,7 @@ import Single from "./pages/Single";
 import Write from "./pages/Write";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import styled from "styled-components";
 
 const Layout = () => {
   return (
@@ -54,12 +55,22 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <div>
-      <RouterProvider router={router} />
-    </div>
+    <AppContainer>
+      <Container>
+        <RouterProvider router={router} />
+      </Container>
+    </AppContainer>
   );
 }
 
 
+const AppContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+const Container = styled.div`
+  
+`;
 
 export default App;
