@@ -55,22 +55,22 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <AppContainer>
-      <Container>
+    <Container>
+      <Wrapper>
         <RouterProvider router={router} />
-      </Container>
-    </AppContainer>
+      </Wrapper>
+    </Container>
   );
 }
 
 
-const AppContainer = styled.div`
-  /* display: flex;
-  justify-content: center; */
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
 `;
 
-const Container = styled.div`
-  
+const Wrapper = styled.div`
+  width: 1024px;
 `;
 
 export default App;
