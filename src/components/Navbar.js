@@ -102,6 +102,7 @@ const Writelink = styled.span`
     background-color: white;
     color:teal;
     border: 1px solid teal;
+  }
 `;
 
 
