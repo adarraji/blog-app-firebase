@@ -54,6 +54,7 @@ const Post = styled.div`
 const ImageContainer = styled.div`
   flex: 2;
   position: relative;
+  
   &:after {
     content: "";
     height: 100%;
