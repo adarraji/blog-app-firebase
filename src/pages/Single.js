@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import EditImg from "../img/edit.png";
 import DeleteImg from "../img/delete.png";
+import Menu from "../components/Menu";
 
 
 const Single = () => {
@@ -26,7 +27,9 @@ const Single = () => {
         <PostTitle>Lorem ipsum is placeholder text commonly used in...</PostTitle>
         <PostDescr>Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups. <br />  <br /> Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.</PostDescr>
       </Content>
-      <Menu>M</Menu>
+      <MenuContainer>
+        <Menu />
+      </MenuContainer>
     </Container>
   )
 }
@@ -97,7 +100,7 @@ const PostDescr = styled.p`
   line-height: 30px;
 `;
 
-const Menu = styled.div`
+const MenuContainer = styled.div`
   flex: 2;
 `;
 
