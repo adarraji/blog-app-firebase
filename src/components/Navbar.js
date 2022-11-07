@@ -3,33 +3,6 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import LogoImage from "../img/logo.png"
 
-const linkList = [
-  {
-    path: "/?cat=art",
-    title: "ART"
-  },
-  {
-    path: "/?cat=science",
-    title: "SCIENCE"
-  },
-  {
-    path: "/?cat=technology",
-    title: "TECHNOLOGY"
-  },
-  {
-    path: "/?cat=cinema",
-    title: "CINEMA"
-  },
-  {
-    path: "/?cat=design",
-    title: "DESIGN"
-  },
-  {
-    path: "/?cat=food",
-    title: "FOOD"
-  }
-];
-
 const Navbar = () => {
   return (
     <Container>
@@ -39,15 +12,31 @@ const Navbar = () => {
           <Image src={LogoImage} />
         </Logo>
         <Links>
-          {
-            linkList.map((item, index) => {
-              return (
-                <Link to={item.path} key={index}>
-                  <LinkHeader>{item.title}</LinkHeader>
-                </Link>
-              )
-            })
-          }
+          <StyledLink to="/?cat=art">
+            <LinkHeader>ART</LinkHeader>
+          </StyledLink>
+          <StyledLink to="/?cat=science">
+            <LinkHeader>SCIENCE</LinkHeader>
+          </StyledLink>
+          <StyledLink to="/?cat=technology">
+            <LinkHeader>TECHNOLOGY</LinkHeader>
+          </StyledLink>
+          <StyledLink to="/?cat=cinema">
+            <LinkHeader>CINEMA</LinkHeader>
+          </StyledLink>
+          <StyledLink to="/?cat=design">
+            <LinkHeader>DESIGN</LinkHeader>
+          </StyledLink>
+          <StyledLink to="/?cat=food">
+            <LinkHeader>FOOD</LinkHeader>
+          </StyledLink>
+          <User>John</User>
+          <Logout>Logout</Logout>
+          <Writelink>
+            <StyledLink to="write">
+              <LinkHeader>Write</LinkHeader>
+            </StyledLink>
+          </Writelink>
         </Links>
       </Wrapper>
     </Container>
@@ -76,12 +65,38 @@ const Image = styled.img`
 const Links = styled.div`
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 10px;  
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
 `;
 
 const LinkHeader = styled.h6`
   font-size: 16px;
   font-weight: 300;
+  text-decoration: none;
+`;
+
+const User = styled.span`
+  cursor: pointer;
+`;
+
+const Logout = styled.span`
+  cursor: pointer;
+`;
+
+const Writelink = styled.span`
+  background-color: #b9e7e7;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 300;
+  border: 1px solid white;
 `;
 
 
