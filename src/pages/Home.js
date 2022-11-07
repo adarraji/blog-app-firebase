@@ -53,17 +53,26 @@ const Post = styled.div`
 
 const ImageContainer = styled.div`
   flex: 2;
+  position: relative;
+  &:after {
+    content: "";
+    height: 100%;
+    width: 100%;
+    background-color: #b9e7e7;
+    position: absolute;
+    top: 20px;
+    left: -20px;
+    z-index: -1;
+  }
 `;
 
 const Image = styled.img`
   width: 100%;
   max-height: 400px;
   object-fit: cover;
+  
 
-  &::after {
-    content: "";
-    
-  }
+ 
 `;
 
 const Content = styled.div`
