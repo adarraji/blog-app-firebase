@@ -1,4 +1,4 @@
-const posts = [
+export const posts = [
     {
         "id": 1,
         "title": "iPhone 9",
@@ -180,4 +180,4 @@ const posts = [
         "descr": "Attractive DesignMetallic materialFour key hooksReliable & DurablePremium Quality",
         "img": "https://dummyjson.com/image/i/products/30/img.jpg",
     }
-]
+];
