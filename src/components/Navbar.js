@@ -8,8 +8,9 @@ const Navbar = () => {
     <Container>
       <Wrapper>
         <Logo>
-          <Link to="/" />
-          <Image src={LogoImage} alt="" />
+          <Link to="/">
+            <Image src={LogoImage} alt="" />
+          </Link>
         </Logo>
         <Links>
           <StyledLink to="/?cat=art">
