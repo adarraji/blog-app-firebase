@@ -59,6 +59,11 @@ const Image = styled.img`
   width: 100%;
   max-height: 400px;
   object-fit: cover;
+
+  &::after {
+    content: "";
+    
+  }
 `;
 
 const Content = styled.div`
