@@ -54,7 +54,7 @@ const Post = styled.div`
 const ImageContainer = styled.div`
   flex: 2;
   position: relative;
-  
+
   &:after {
     content: "";
     height: 100%;
@@ -71,13 +71,13 @@ const Image = styled.img`
   width: 100%;
   max-height: 400px;
   object-fit: cover;
-  
-
- 
 `;
 
 const Content = styled.div`
   flex: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 const StyledLink = styled(Link)`
@@ -86,12 +86,27 @@ const StyledLink = styled(Link)`
 `;
 
 const Title = styled.h1`
+  font-size: 48px;
 `;
 
 const Descr = styled.p`
+  font-size: 18px;
 `;
 
 const Button = styled.button`
+  width: max-content;
+  padding: 10px 20px;
+  border: none;
+  background-color: white;
+  border: 1px solid teal;
+  color: teal;
+  cursor: pointer;
+
+  &:hover{
+    border: 1px solid white;
+    background-color: #b9e7e7;
+    color: black;
+  }
 `;
 
 
