@@ -97,6 +97,11 @@ const Writelink = styled.span`
   justify-content: center;
   font-weight: 300;
   border: 1px solid white;
+
+  &:hover {
+    background-color: white;
+    color:teal;
+    border: 1px solid teal;
 `;
 
 
