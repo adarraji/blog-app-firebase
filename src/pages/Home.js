@@ -38,12 +38,17 @@ const PostsContainer = styled.div`
   margin-top: 50px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 150px;
 `;
 
 const Post = styled.div`
   display: flex;
   gap: 100px;
+
+  &:nth-child(2n+1) {
+    flex-direction: row-reverse;
+  }
 `;
 
 const ImageContainer = styled.div`
