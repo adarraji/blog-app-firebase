@@ -17,9 +17,9 @@ const Home = () => {
               <Content>
                 <Link to={`/post/${post.id}`}>
                   <Title>{post.title}</Title>
-                  <Descr>{post.descr}</Descr>
-                  <Button>Read More</Button>
                 </Link>
+                <Descr>{post.descr}</Descr>
+                <Button>Read More</Button>
               </Content>
             </Post>
           ))
