@@ -12,22 +12,48 @@ const Write = () => {
       <Content>
         <Input type="text" placeholder="Title" />
         <EditorContainer>
-          <ReactQuill theme="snow" value={value} onChange={setValue} />
+          <ReactQuill style={{ "height": "100%", "border": "none" }} theme="snow" value={value} onChange={setValue} />
         </EditorContainer>
       </Content>
       <Menu>
         <MenuItem>
           <MenuItemTitle>Publish</MenuItemTitle>
-          <MenuItemSpan><b>Status: </b>Draft</MenuItemSpan>
-          <MenuItemSpan><b>Visibility: </b>Public</MenuItemSpan>
+          <span><b>Status: </b>Draft</span>
+          <span><b>Visibility: </b>Public</span>
           <MenuItemInput type="file" id="file" name="" />
           <MenuItemLabel htmlFor="file">Upload Image</MenuItemLabel>
           <Buttons>
             <button>Save as a draft</button>
-            <Button>Publish</Button>
+            <button>Publish</button>
           </Buttons>
         </MenuItem>
-        <MenuItem>Item 2</MenuItem>
+        <MenuItem>
+          <MenuItemTitle>Category</MenuItemTitle>
+          <Category>
+            <input type="radio" name="cat" value="art" id="art"></input>
+            <label htmlFor="cat">Art</label>
+          </Category>
+          <Category>
+            <input type="radio" name="cat" value="science" id="science"></input>
+            <label htmlFor="science">Science</label>
+          </Category>
+          <Category>
+            <input type="radio" name="cat" value="technology" id="technology"></input>
+            <label htmlFor="technology">Technology</label>
+          </Category>
+          <Category>
+            <input type="radio" name="cat" value="cinema" id="cinema"></input>
+            <label htmlFor="cinema">Cinema</label>
+          </Category>
+          <Category>
+            <input type="radio" name="cat" value="design" id="design"></input>
+            <label htmlFor="design">Design</label>
+          </Category>
+          <Category>
+            <input type="radio" name="cat" value="food" id="food"></input>
+            <label htmlFor="food">Food</label>
+          </Category>
+        </MenuItem>
       </Menu>
     </Container>
   )
@@ -53,7 +79,7 @@ const Input = styled.input`
 
 const EditorContainer = styled.div` 
   height: 300px;
-
+  overflow: scroll;
 `;
 
 const Menu = styled.div` 
@@ -76,9 +102,6 @@ const MenuItem = styled.div`
 
 const MenuItemTitle = styled.h1`
   font-size: 20px;
-`;
-
-const MenuItemSpan = styled.span` 
 `;
 
 const MenuItemInput = styled.input` 
@@ -115,11 +138,7 @@ const Buttons = styled.div`
 `;
 
 
-const Button = styled.button` 
+const Category = styled.div` 
 `;
 
-
-
-
-
-export default Write
+export default Write;
