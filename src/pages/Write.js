@@ -78,8 +78,9 @@ const Input = styled.input`
 `;
 
 const EditorContainer = styled.div` 
-  height: 300px;
+  height: 350px;
   overflow: scroll;
+  border: 1px solid lightgray;
 `;
 
 const Menu = styled.div` 
@@ -90,14 +91,14 @@ const Menu = styled.div`
 `;
 
 const MenuItem = styled.div`
-  flex: 1;
+  border: 1px solid lightgray;
   padding: 10px;
+  flex:1;
   display: flex;
   flex-direction: column;
-  border: 1px solid lightgray;
   justify-content: space-between;
   font-size: 12px;
-  columns: #555;
+  color: #555;
 `;
 
 const MenuItemTitle = styled.h1`
@@ -112,8 +113,6 @@ const MenuItemLabel = styled.label`
   text-decoration: underline;
   cursor: pointer;
 `;
-
-
 
 const Buttons = styled.div`
   display: flex;
@@ -137,8 +136,11 @@ const Buttons = styled.div`
    }
 `;
 
-
 const Category = styled.div` 
+   display: flex;
+   align-items: center;
+   gap: 2px;
+   color: teal;
 `;
 
 export default Write;
