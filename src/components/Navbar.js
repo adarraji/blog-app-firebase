@@ -60,7 +60,7 @@ const Logo = styled.div`
 `;
 
 const Image = styled.img`
-  width: 120px;
+  width: 170px;
 `;
 
 const Links = styled.div`
