@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../context/authContext";
 import styled from "styled-components";
-import LogoImage from "../img/logo.png"
+import LogoImage from "../img/logo.png";
 
 const Navbar = () => {
+  const { currentUser, logout } = useContext(AuthContext);
+
   return (
     <Container>
       <Wrapper>
@@ -31,8 +34,8 @@ const Navbar = () => {
           <StyledLink to="/?cat=food">
             <LinkHeader>FOOD</LinkHeader>
           </StyledLink>
-          <User>John</User>
-          <Logout>Logout</Logout>
+          <User>{currentUser && currentUser.username}</User>
+          {currentUser ? <Logout onClick={logout}>Logout</Logout> : <StyledLink to="/login">Login</StyledLink>}
           <Writelink>
             <StyledLink to="write">
               <LinkHeader>Write</LinkHeader>
