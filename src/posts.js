@@ -57,7 +57,7 @@ export const posts = [
         "id": 10,
         "title": "HP Pavilion 15-DK1056WM",
         "descr": "HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10",
-        "img": "https://dummyjson.com/image/i/products/10/1.jpeg",
+        "img": "https://dummyjson.com/image/i/products/10/1.jpg",
 
     },
     {
@@ -76,7 +76,7 @@ export const posts = [
         "id": 13,
         "title": "Fog Scent Xpressio Perfume",
         "descr": "Product details of Best Fog Scent Xpressio Perfume 100ml For Men cool long lasting perfumes for Men",
-        "img": "https://dummyjson.com/image/i/products/13/1.webp",
+        "img": "https://dummyjson.com/image/i/products/13/1.jpg",
     },
     {
         "id": 14,
@@ -94,7 +94,7 @@ export const posts = [
         "id": 16,
         "title": "Hyaluronic Acid Serum",
         "descr": "L'OrÃ©al Paris introduces Hyaluron Expert Replumping Serum formulated with 1.5% Hyaluronic Acid",
-        "img": "https://dummyjson.com/image/i/products/16/1.jpg",
+        "img": "https://dummyjson.com/image/i/products/16/3.jpg",
     },
     {
         "id": 17,
@@ -148,7 +148,7 @@ export const posts = [
         "id": 25,
         "title": "Gulab Powder 50 Gram",
         "descr": "Dry Rose Flower Powder Gulab Powder 50 Gram • Treats Wounds",
-        "img": "https://dummyjson.com/image/i/products/25/1.jpg",
+        "img": "https://dummyjson.com/image/i/products/25/2.jpg",
     },
     {
         "id": 26,
@@ -160,7 +160,7 @@ export const posts = [
         "id": 27,
         "title": "Flying Wooden Bird",
         "descr": "Package Include 6 Birds with Adhesive Tape Shape: 3D Shaped Wooden Birds Material: Wooden MDF, Laminated 3.5mm",
-        "img": "https://dummyjson.com/image/i/products/27/1.webp",
+        "img": "https://dummyjson.com/image/i/products/27/1.jpg",
     },
     {
         "id": 28,
@@ -172,7 +172,7 @@ export const posts = [
         "id": 29,
         "title": "Handcraft Chinese style",
         "descr": "Handcraft Chinese style art luxury palace hotel villa mansion home decor ceramic vase with brass fruit plate",
-        "img": "https://dummyjson.com/image/i/products/29/1.webp",
+        "img": "https://dummyjson.com/image/i/products/29/1.jpg",
     },
     {
         "id": 30,
