@@ -8,12 +8,14 @@ To run the application
 
 ## Built With
 
-* 
-* 
-* 
-* 
-* 
-* 
+* HTML
+* CSS
+* Javascript
+* React
+* styled-components
+* React Router
+* React Hooks
+* React Context API 
 
 ## Environmental Variables
 
