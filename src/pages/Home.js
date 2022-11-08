@@ -61,8 +61,8 @@ const ImageContainer = styled.div`
     width: 100%;
     background-color: #b9e7e7;
     position: absolute;
-    top: 20px;
-    left: -20px;
+    top: 10px;
+    left: -10px;
     z-index: -1;
   }
 `;
