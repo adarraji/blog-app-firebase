@@ -1,17 +1,42 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 import styled from "styled-components";
 
-
 const Login = () => {
+
+  const [inputs, setInputs] = useState({
+    username: "",
+    password: "",
+  });
+
+  const [err, setError] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleChange = e => {
+    setInputs(prev => ({ ...prev, [e.target.name]: e.target.value }))
+  }
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/auth/login`, inputs);
+      navigate("/");
+    } catch (err) {
+      setError(err.response.data);
+    }
+  }
+
   return (
     <Container>
       <Header>Login</Header>
       <Form>
-        <Input required type="text" placeholder="username" />
-        <Input required type="password" placeholder="password" />
-        <Button>Login</Button>
-        <Error>This is an error!</Error>
+        <Input required type="text" placeholder="username" name="username" onChange={handleChange} />
+        <Input required type="password" placeholder="password" name="password" onChange={handleChange} />
+        <Button onClick={handleSubmit}>Login</Button>
+        {err && <Error>{err}</Error>}
         <LinkToPage>
           Don't have an account ? <Link to="register">Register</Link>
         </LinkToPage>
