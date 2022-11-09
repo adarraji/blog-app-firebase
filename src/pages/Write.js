@@ -4,13 +4,22 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import axios from "axios";
 import moment from "moment";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Write = () => {
-  const [value, setValue] = useState("");
-  const [title, setTitle] = useState("");
-  const [file, setFile] = useState(null);
-  const [cat, setCat] = useState("");
 
+  // Check if there is a state (post). 
+  // if there is a state this mens it was redirected by clicking edit button on the single post page. 
+  // if there no state this means it was redirected from by clicking write (new post).
+
+  const state = useLocation().state;
+
+  const [value, setValue] = useState(state?.descr || "");
+  const [title, setTitle] = useState(state?.title || "");
+  const [file, setFile] = useState(null);
+  const [cat, setCat] = useState(state?.cat || "");
+
+  const navigate = useNavigate();
 
   const upload = async () => {
     try {
@@ -26,15 +35,32 @@ const Write = () => {
   const handleClick = async e => {
     e.preventDefault();
     const imageUrl = await upload();
-    const postData = {
-      title: title,
-      descr: value,
-      img: imageUrl,
-      cat: cat,
-      date: moment(Date.now()).format("YYYY-MM-DD HH:mmm:ss")
-    }
+
     try {
-      const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/posts`, postData, { withCredentials: true }); // withCredentials: true is needed to send the cookie to backend
+
+      // If there is a state --> Update post
+      if (state) {
+        await axios.put(`${process.env.REACT_APP_BASE_URL}/posts/${state.id}`, {
+          title: title,
+          descr: value,
+          img: file ? imageUrl : "",
+          cat: cat,
+        }, { withCredentials: true }); // withCredentials: true is needed to send the cookie to backend
+      }
+
+      // If there is no state --> New post 
+      else {
+        await axios.post(`${process.env.REACT_APP_BASE_URL}/posts`, {
+          title: title,
+          descr: value,
+          img: file ? imageUrl : "",
+          cat: cat,
+          date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss")
+        }, { withCredentials: true }); // withCredentials: true is needed to send the cookie to backend  
+      }
+
+      navigate("/");
+
     } catch (err) {
       console.log(err);
     }
@@ -44,7 +70,7 @@ const Write = () => {
   return (
     <Container>
       <Content>
-        <Input type="text" placeholder="Title" onChange={(e) => setTitle(e.target.value)} />
+        <Input type="text" value={title} placeholder="Title" onChange={(e) => setTitle(e.target.value)} />
         <EditorContainer>
           <ReactQuill style={{ "height": "100%", "border": "none" }} theme="snow" value={value} onChange={setValue} />
         </EditorContainer>
@@ -64,27 +90,27 @@ const Write = () => {
         <MenuItem>
           <MenuItemTitle>Category</MenuItemTitle>
           <Category>
-            <input type="radio" name="cat" value="art" id="art" onChange={(e) => setCat(e.target.value)}></input >
+            <input type="radio" checked={cat === "art"} name="cat" value="art" id="art" onChange={(e) => setCat(e.target.value)}></input >
             <label htmlFor="cat">Art</label>
           </Category>
           <Category>
-            <input type="radio" name="cat" value="science" id="science" onChange={(e) => setCat(e.target.value)}></input>
+            <input type="radio" checked={cat === "science"} name="cat" value="science" id="science" onChange={(e) => setCat(e.target.value)}></input>
             <label htmlFor="science">Science</label>
           </Category>
           <Category>
-            <input type="radio" name="cat" value="technology" id="technology" onChange={(e) => setCat(e.target.value)}></input>
+            <input type="radio" checked={cat === "technology"} name="cat" value="technology" id="technology" onChange={(e) => setCat(e.target.value)}></input>
             <label htmlFor="technology">Technology</label>
           </Category>
           <Category>
-            <input type="radio" name="cat" value="cinema" id="cinema" onChange={(e) => setCat(e.target.value)}></input>
+            <input type="radio" checked={cat === "cinema"} name="cat" value="cinema" id="cinema" onChange={(e) => setCat(e.target.value)}></input>
             <label htmlFor="cinema">Cinema</label>
           </Category>
           <Category>
-            <input type="radio" name="cat" value="design" id="design" onChange={(e) => setCat(e.target.value)}></input>
+            <input type="radio" checked={cat === "design"} name="cat" value="design" id="design" onChange={(e) => setCat(e.target.value)}></input>
             <label htmlFor="design">Design</label>
           </Category>
           <Category>
-            <input type="radio" name="cat" value="food" id="food" onChange={(e) => setCat(e.target.value)}></input>
+            <input type="radio" checked={cat === "food"} name="cat" value="food" id="food" onChange={(e) => setCat(e.target.value)}></input>
             <label htmlFor="food">Food</label>
           </Category>
         </MenuItem>
