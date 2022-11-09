@@ -43,17 +43,15 @@ const Single = () => {
           </Info>
           {currentUser.username === post.username && (
             <Edit>
-
               <Link to="/write?edit=2">
                 <EditImage src={EditImg} alt="" />
               </Link>
               <EditImage src={DeleteImg} alt="" />
-
             </Edit>)
           }
         </User>
-        <PostTitle>Lorem ipsum is placeholder text commonly used in...</PostTitle>
-        <PostDescr>Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups. <br />  <br /> Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.</PostDescr>
+        <PostTitle>{post.title}</PostTitle>
+        {post.descr}
       </Content>
       <MenuContainer>
         <Menu />
@@ -121,11 +119,6 @@ const EditImage = styled.img`
 const PostTitle = styled.h1`
   font-size: 42px;
   color: #333;
-`;
-
-const PostDescr = styled.p`
-  text-align: justify;
-  line-height: 30px;
 `;
 
 const MenuContainer = styled.div`
