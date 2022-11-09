@@ -3,6 +3,7 @@ import styled from "styled-components";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import axios from "axios";
+import moment from "moment";
 
 const Write = () => {
   const [value, setValue] = useState("");
@@ -15,8 +16,8 @@ const Write = () => {
     try {
       const formData = new FormData();
       formData.append("file", file);
-      const res = await axios.post(`${process.env.REACT_APP_BASE_URL}/upload`, formData);
-      console.log(res.data);
+      const res = await axios.post(`${process.env.REACT_APP_BASE_URL}/upload`, formData, { withCredentials: true }); // withCredentials: true is needed to send the cookie to backend
+      return res.data;
     } catch (err) {
       console.log(err);
     }
@@ -24,7 +25,19 @@ const Write = () => {
 
   const handleClick = async e => {
     e.preventDefault();
-    upload();
+    const imageUrl = await upload();
+    const postData = {
+      title: title,
+      descr: value,
+      img: imageUrl,
+      cat: cat,
+      date: moment(Date.now()).format("YYYY-MM-DD HH:mmm:ss")
+    }
+    try {
+      const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/posts`, postData, { withCredentials: true }); // withCredentials: true is needed to send the cookie to backend
+    } catch (err) {
+      console.log(err);
+    }
 
   }
 
