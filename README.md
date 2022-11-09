@@ -21,7 +21,7 @@ To run the application
 
 ### Server Base URL
 
-You must add your server base url `REACT_APP_BASE_URL` in `src/pages/register.js`
+You must add your server base url `REACT_APP_BASE_URL` in `src/pages/Register.js`, `src/context/authContext.js`, `src/pages/Home.js`
 
 You can create .env file for you application and use the following for example:
 
