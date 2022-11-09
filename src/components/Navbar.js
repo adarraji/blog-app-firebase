@@ -1,11 +1,24 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/authContext";
 import styled from "styled-components";
 import LogoImage from "../img/logo.png";
 
 const Navbar = () => {
   const { currentUser, logout } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+
+    try {
+      logout();
+      navigate("/");
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   return (
     <Container>
@@ -35,7 +48,7 @@ const Navbar = () => {
             <LinkHeader>FOOD</LinkHeader>
           </StyledLink>
           <User>{currentUser && currentUser.username}</User>
-          {currentUser ? <Logout onClick={logout}>Logout</Logout> : <StyledLink to="/login">Login</StyledLink>}
+          {currentUser ? <Logout onClick={handleSubmit}>Logout</Logout> : <StyledLink to="/login">Login</StyledLink>}
           <Writelink>
             <StyledLink to="write">
               <LinkHeader>Write</LinkHeader>
