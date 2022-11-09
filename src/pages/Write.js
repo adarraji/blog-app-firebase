@@ -2,15 +2,36 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import axios from "axios";
 
 const Write = () => {
   const [value, setValue] = useState("");
-  console.log(value);
+  const [title, setTitle] = useState("");
+  const [file, setFile] = useState(null);
+  const [cat, setCat] = useState("");
+
+
+  const upload = async () => {
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
+      const res = await axios.post(`${process.env.REACT_APP_BASE_URL}/upload`, formData);
+      console.log(res.data);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  const handleClick = async e => {
+    e.preventDefault();
+    upload();
+
+  }
 
   return (
     <Container>
       <Content>
-        <Input type="text" placeholder="Title" />
+        <Input type="text" placeholder="Title" onChange={(e) => setTitle(e.target.value)} />
         <EditorContainer>
           <ReactQuill style={{ "height": "100%", "border": "none" }} theme="snow" value={value} onChange={setValue} />
         </EditorContainer>
@@ -20,37 +41,37 @@ const Write = () => {
           <MenuItemTitle>Publish</MenuItemTitle>
           <span><b>Status: </b>Draft</span>
           <span><b>Visibility: </b>Public</span>
-          <MenuItemInput type="file" id="file" name="" />
+          <MenuItemInput type="file" id="file" name="" onChange={(e) => setFile(e.target.files[0])} />
           <MenuItemLabel htmlFor="file">Upload Image</MenuItemLabel>
           <Buttons>
             <button>Save as a draft</button>
-            <button>Publish</button>
+            <button onClick={handleClick}>Publish</button>
           </Buttons>
         </MenuItem>
         <MenuItem>
           <MenuItemTitle>Category</MenuItemTitle>
           <Category>
-            <input type="radio" name="cat" value="art" id="art"></input>
+            <input type="radio" name="cat" value="art" id="art" onChange={(e) => setCat(e.target.value)}></input >
             <label htmlFor="cat">Art</label>
           </Category>
           <Category>
-            <input type="radio" name="cat" value="science" id="science"></input>
+            <input type="radio" name="cat" value="science" id="science" onChange={(e) => setCat(e.target.value)}></input>
             <label htmlFor="science">Science</label>
           </Category>
           <Category>
-            <input type="radio" name="cat" value="technology" id="technology"></input>
+            <input type="radio" name="cat" value="technology" id="technology" onChange={(e) => setCat(e.target.value)}></input>
             <label htmlFor="technology">Technology</label>
           </Category>
           <Category>
-            <input type="radio" name="cat" value="cinema" id="cinema"></input>
+            <input type="radio" name="cat" value="cinema" id="cinema" onChange={(e) => setCat(e.target.value)}></input>
             <label htmlFor="cinema">Cinema</label>
           </Category>
           <Category>
-            <input type="radio" name="cat" value="design" id="design"></input>
+            <input type="radio" name="cat" value="design" id="design" onChange={(e) => setCat(e.target.value)}></input>
             <label htmlFor="design">Design</label>
           </Category>
           <Category>
-            <input type="radio" name="cat" value="food" id="food"></input>
+            <input type="radio" name="cat" value="food" id="food" onChange={(e) => setCat(e.target.value)}></input>
             <label htmlFor="food">Food</label>
           </Category>
         </MenuItem>
