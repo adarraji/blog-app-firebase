@@ -9,12 +9,12 @@ export const AuthContextProvider = ({ children }) => {
     );
 
     const login = async (inputs) => {
-        const res = await axios.post(`${process.env.REACT_APP_BASE_URL}/auth/login`, inputs, { withCredentials: true });
+        const res = await axios.post(`${process.env.REACT_APP_BASE_URL}/auth/login`, inputs, { withCredentials: true }); // withCredentials: true is needed to send the cookie to backend
         setCurrentUser(res.data);
     };
 
     const logout = async () => {
-        await axios.get(`${process.env.REACT_APP_BASE_URL}/auth/logout`, { withCredentials: true });
+        await axios.get(`${process.env.REACT_APP_BASE_URL}/auth/logout`, { withCredentials: true }); // withCredentials: true is needed to get the cookie from backend
         setCurrentUser(null);
     };
 
