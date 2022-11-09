@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import moment from "moment";
 import styled from "styled-components";
@@ -13,6 +13,7 @@ const Single = () => {
   const [post, setPost] = useState({});
 
   const location = useLocation();
+  const navigate = useNavigate();
 
   const postId = location.pathname.split("/")[2];
 
@@ -31,6 +32,15 @@ const Single = () => {
     fetchData();
   }, [postId]);
 
+  const handleDelete = async () => {
+    try {
+      await axios.delete(`${process.env.REACT_APP_BASE_URL}/posts/${postId}`, { withCredentials: true }); // withCredentials: true is needed to send the cookie to backend
+      navigate("/");
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   return (
     <Container>
       <Content>
@@ -46,7 +56,7 @@ const Single = () => {
               <Link to="/write?edit=2">
                 <EditImage src={EditImg} alt="" />
               </Link>
-              <EditImage src={DeleteImg} alt="" />
+              <DeleteImage onClick={handleDelete} src={DeleteImg} alt="" />
             </Edit>)
           }
         </User>
@@ -110,6 +120,12 @@ const Edit = styled.div`
 `;
 
 const EditImage = styled.img`
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+`;
+
+const DeleteImage = styled.img`
   width: 20px;
   height: 20px;
   cursor: pointer;
