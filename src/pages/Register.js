@@ -25,7 +25,7 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/auth/register`, inputs);
+      await axios.post(`${process.env.REACT_APP_BASE_URL}/auth/register`, inputs);
       navigate("/login");
     } catch (err) {
       setError(err.response.data);

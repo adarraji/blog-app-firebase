@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
-import { posts } from "../posts";
 import axios from "axios";
 
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
 
+  const cat = useLocation().search;
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/posts`);
+        const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/posts/${cat}`);
         setPosts(response.data);
       } catch (err) {
         console.log(err);
@@ -19,7 +20,7 @@ const Home = () => {
     };
 
     fetchData();
-  }, []);
+  }, [cat]);
 
   return (
     <Container>
