@@ -1,28 +1,56 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react";
+import { Link, useLocation } from "react-router-dom";
+import axios from "axios";
+import moment from "moment";
 import styled from "styled-components";
 import EditImg from "../img/edit.png";
 import DeleteImg from "../img/delete.png";
 import Menu from "../components/Menu";
+import { AuthContext } from "../context/authContext";
 
 
 const Single = () => {
+  const [post, setPost] = useState({});
+
+  const location = useLocation();
+
+  const postId = location.pathname.split("/")[2];
+
+  const { currentUser } = useContext(AuthContext);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/posts/${postId}`);
+        setPost(response.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchData();
+  }, [postId]);
+
   return (
     <Container>
       <Content>
-        <ProductImage src="https://dummyjson.com/image/i/products/5/1.jpg" alt="" />
+        <ProductImage src={post?.img} alt="" />
         <User>
           <UserImage src="https://dummyjson.com/image/i/products/30/1.jpg" alt="" />
           <Info>
-            <UserInfo>John</UserInfo>
-            <PostInfo>Posted 2 days ago</PostInfo>
+            <UserInfo>{post.username}</UserInfo>
+            <PostInfo>Posted {moment(post.date).fromNow()}</PostInfo>
           </Info>
-          <Edit>
-            <Link to="/write?edit=2">
-              <EditImage src={EditImg} alt="" />
-            </Link>
-            <EditImage src={DeleteImg} alt="" />
-          </Edit>
+          {currentUser.username === post.username && (
+            <Edit>
+
+              <Link to="/write?edit=2">
+                <EditImage src={EditImg} alt="" />
+              </Link>
+              <EditImage src={DeleteImg} alt="" />
+
+            </Edit>)
+          }
         </User>
         <PostTitle>Lorem ipsum is placeholder text commonly used in...</PostTitle>
         <PostDescr>Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups. <br />  <br /> Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.</PostDescr>
