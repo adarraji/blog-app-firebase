@@ -16,6 +16,7 @@ To run the application
 * React Router
 * React Hooks
 * React Context API 
+<br/>
 
 ## Environmental Variables
 
@@ -37,18 +38,24 @@ Or create .env file for React app
 then use it like this
 
  `process.env.REACT_APP_BASE_URL`
-
+<br/>
 
 ### Server Uploads URL
 
-The location where the the images are stored on the server. Used om `src/pages/Home.js`, `src/pages/Single.js`, `src/components/Menu.js`
+Add the url where the the images are stored on the server `REACT_APP_UPLOAD_URL` in:
 
+* `src/pages/Home.js`
+* `src/pages/Single.js`
+* `src/components/Menu.js`
 
-You can create .env file for you application and use the following for example:
+Or create .env file for React app
 
 `REACT_APP_UPLOAD_URL=http://localhost:3000/uploads`
 
-Then use it in the application as  `process.env.REACT_APP_UPLOAD_URL`
+then use it like this
+
+`process.env.REACT_APP_UPLOAD_URL`
+<br/>
 
 ## Deployment
 Deployed on 
