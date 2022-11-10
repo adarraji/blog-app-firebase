@@ -22,6 +22,7 @@ const Home = () => {
     fetchData();
   }, [cat]);
 
+
   return (
     <Container>
       <PostsContainer>
@@ -29,7 +30,7 @@ const Home = () => {
           posts.map((post) => (
             < Post key={post.id} >
               <ImageContainer>
-                <Image src={post.img} alt="" />
+                <Image src={`${process.env.REACT_APP_UPLOAD_URL}/${post.img}`} alt="" />
               </ImageContainer>
               <Content>
                 <StyledLink to={`/post/${post.id}`}>
