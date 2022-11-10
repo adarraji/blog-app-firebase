@@ -32,7 +32,7 @@ Then use it in the application as  `process.env.REACT_APP_BASE_URL`
 
 ### Server Uploads URL
 
-The location where the the images are stored on the server.
+The location where the the images are stored on the server. Used om `src/pages/Home.js`, `src/pages/Single.js`
 
 
 You can create .env file for you application and use the following for example:
