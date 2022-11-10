@@ -68,9 +68,7 @@ const Single = () => {
         <PostTitle>{post.title}</PostTitle>
 
         {/* using a parser because ReactQuill (Editor) returns html matkup text that will show onpage as html text */}
-        {
-          parse(`<Descr>${post.descr}</Descr>`)
-        }
+        <Descr>{parse(`${post.descr}`)}</Descr>
 
       </Content>
       <MenuContainer>
@@ -146,6 +144,11 @@ const PostTitle = styled.h1`
   font-size: 42px;
   color: #333;
 `;
+
+const Descr = styled.span`
+  font-size: 18px;
+`;
+
 
 const MenuContainer = styled.div`
   flex: 2;
