@@ -44,7 +44,7 @@ const Single = () => {
   return (
     <Container>
       <Content>
-        <ProductImage src={post?.img} alt="" />
+        <ProductImage src={`${process.env.REACT_APP_UPLOAD_URL}/${post?.img}`} alt="" />
         <User>
           <UserImage src="https://dummyjson.com/image/i/products/30/1.jpg" alt="" />
           <Info>
@@ -64,7 +64,7 @@ const Single = () => {
         {post.descr}
       </Content>
       <MenuContainer>
-        <Menu cat={post.cat}/>
+        <Menu cat={post.cat} />
       </MenuContainer>
     </Container>
   )
