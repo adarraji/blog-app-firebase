@@ -30,7 +30,13 @@ Add the backend server base url `REACT_APP_BASE_URL` in:
 * `src/pages/Write.js`
 * `src/components/Menu.js`
 
-Or create .env file for React app and `REACT_APP_BASE_URL=http://localhost:3000/api/` then use it like this `process.env.REACT_APP_BASE_URL`
+Or create .env file for React app
+
+`REACT_APP_BASE_URL=http://localhost:3000/api/` 
+
+then use it like this
+
+ `process.env.REACT_APP_BASE_URL`
 
 
 ### Server Uploads URL
