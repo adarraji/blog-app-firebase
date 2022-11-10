@@ -7,6 +7,7 @@ import EditImg from "../img/edit.png";
 import DeleteImg from "../img/delete.png";
 import Menu from "../components/Menu";
 import { AuthContext } from "../context/authContext";
+import parse from "html-react-parser";
 
 
 const Single = () => {
@@ -65,7 +66,12 @@ const Single = () => {
           }
         </User>
         <PostTitle>{post.title}</PostTitle>
-        {post.descr}
+
+        {/* using a parser because ReactQuill (Editor) returns html matkup text that will show onpage as html text */}
+        {
+          parse(`<Descr>${post.descr}</Descr>`)
+        }
+
       </Content>
       <MenuContainer>
         <Menu cat={post.cat} />

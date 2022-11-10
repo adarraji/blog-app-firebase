@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import axios from "axios";
+import parse from "html-react-parser";
 
 
 const Home = () => {
@@ -36,7 +37,12 @@ const Home = () => {
                 <StyledLink to={`/post/${post.id}`}>
                   <Title>{post.title}</Title>
                 </StyledLink>
-                <Descr>{post.descr}</Descr>
+                
+                {/* using a parser because ReactQuill (Editor) returns html matkup text that will show onpage as html text */}
+                {
+                  parse(`<Descr>${post.descr}</Descr>`)
+                }                
+                
                 <Button>Read More</Button>
               </Content>
             </Post>
