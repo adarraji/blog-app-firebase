@@ -49,11 +49,17 @@ const Navbar = () => {
           </StyledLink>
           <User>{currentUser && currentUser.username}</User>
           {currentUser ? <Logout onClick={handleSubmit}>Logout</Logout> : <StyledLink to="/login">Login</StyledLink>}
-          <Writelink>
-            <StyledLink to="write">
-              <LinkHeader>Write</LinkHeader>
-            </StyledLink>
-          </Writelink>
+          {
+            currentUser &&
+            (
+              <Writelink>
+                <StyledLink to="write">
+                  <LinkHeader>Write</LinkHeader>
+                </StyledLink>
+              </Writelink>
+            )
+          }
+
         </Links>
       </Wrapper>
     </Container>
