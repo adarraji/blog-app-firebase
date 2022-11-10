@@ -30,6 +30,17 @@ You can create .env file for you application and use the following for example:
 Then use it in the application as  `process.env.REACT_APP_BASE_URL`
 
 
+### Server Uploads URL
+
+The location where the the images are stored on the server.
+
+
+You can create .env file for you application and use the following for example:
+
+`REACT_APP_UPLOAD_URL=http://localhost:3000/uploads`
+
+Then use it in the application as  `process.env.REACT_APP_UPLOAD_URL`
+
 ## Deployment
 Deployed on 
 
