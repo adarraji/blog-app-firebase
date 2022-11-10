@@ -45,7 +45,7 @@ const Single = () => {
   return (
     <Container>
       <Content>
-        <ProductImage src={`${process.env.REACT_APP_UPLOAD_URL}/${post?.img}`} alt="" />
+        <ProductImage src={post.img && `${process.env.REACT_APP_UPLOAD_URL}/${post.img}`} alt="" />
         <User>
           <UserImage src="https://dummyjson.com/image/i/products/30/1.jpg" alt="" />
           <Info>
