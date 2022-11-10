@@ -23,11 +23,11 @@ const Navbar = () => {
   return (
     <Container>
       <Wrapper>
-        <Logo>
+        <div>
           <Link to="/">
             <Image src={LogoImage} alt="" />
           </Link>
-        </Logo>
+        </div>
         <Links>
           <StyledLink to="/?cat=art">
             <LinkHeader>ART</LinkHeader>
@@ -77,12 +77,10 @@ const Wrapper = styled.div`
     justify-content: space-between;
 `;
 
-const Logo = styled.div`
-  
-`;
-
 const Image = styled.img`
-  width: 140px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
 `;
 
 const Links = styled.div`
