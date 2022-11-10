@@ -51,13 +51,17 @@ const Single = () => {
             <UserInfo>{post.username}</UserInfo>
             <PostInfo>Posted {moment(post.date).fromNow()}</PostInfo>
           </Info>
-          {currentUser.username === post.username && (
-            <Edit>
-              <Link to="/write?edit=2" state={post}>
-                <EditImage src={EditImg} alt="" />
-              </Link>
-              <DeleteImage onClick={handleDelete} src={DeleteImg} alt="" />
-            </Edit>)
+          {
+            currentUser &&
+            (
+              currentUser.username === post.username && (
+                <Edit>
+                  <Link to="/write?edit=2" state={post}>
+                    <EditImage src={EditImg} alt="" />
+                  </Link>
+                  <DeleteImage onClick={handleDelete} src={DeleteImg} alt="" />
+                </Edit>)
+            )
           }
         </User>
         <PostTitle>{post.title}</PostTitle>
