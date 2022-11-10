@@ -26,7 +26,7 @@ const Menu = ({ cat }) => {
                 posts.map(post => (
 
                     <Post key={post.id}>
-                        <Image src={post.img} alt="" />
+                        <Image src={`${process.env.REACT_APP_UPLOAD_URL}/${post?.img}`} alt="" />
                         <PostTitle>{post.title}</PostTitle>
                         <Button>Read More</Button>
                     </Post>
