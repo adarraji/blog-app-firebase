@@ -21,13 +21,16 @@ To run the application
 
 ### Server Base URL
 
-You must add your server base url `REACT_APP_BASE_URL` in `src/pages/Register.js`, `src/context/authContext.js`, `src/pages/Home.js`, `src/pages/Single.js`, `src/pages/Write.js`, `src/components/Menu.js`
+Add the backend server base url `REACT_APP_BASE_URL` in:
 
-You can create .env file for you application and use the following for example:
+* `src/pages/Register.js`
+* `src/context/authContext.js`
+* `src/pages/Home.js`
+* `src/pages/Single.js`
+* `src/pages/Write.js`
+* `src/components/Menu.js`
 
-`REACT_APP_BASE_URL=http://localhost:3000/api/`
-
-Then use it in the application as  `process.env.REACT_APP_BASE_URL`
+Or create .env file for React app and `REACT_APP_BASE_URL=http://localhost:3000/api/` then use it like this `process.env.REACT_APP_BASE_URL`
 
 
 ### Server Uploads URL
