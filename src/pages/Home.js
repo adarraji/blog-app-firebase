@@ -37,12 +37,12 @@ const Home = () => {
                 <StyledLink to={`/post/${post.id}`}>
                   <Title>{post.title}</Title>
                 </StyledLink>
-                
+
                 {/* using a parser because ReactQuill (Editor) returns html matkup text that will show onpage as html text */}
-                {
-                  parse(`<Descr>${post.descr}</Descr>`)
-                }                
-                
+
+                <Descr>{parse(`${post.descr}`)}</Descr>
+
+
                 <Button>Read More</Button>
               </Content>
             </Post>
@@ -113,7 +113,7 @@ const Title = styled.h1`
   font-size: 48px;
 `;
 
-const Descr = styled.p`
+const Descr = styled.span`
   font-size: 18px;
 `;
 
