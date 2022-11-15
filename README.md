@@ -17,6 +17,7 @@ To run the application
 * React Router
 * React Hooks
 * React Context API 
+* Firebase
 <br/>
 
 ## Environmental Variables
@@ -39,6 +40,13 @@ Or create .env file for React app
 then use it like this
 
  `process.env.REACT_APP_BASE_URL`
+<br/>
+<br/>
+
+
+### Firebse App Configuration File
+
+Create `src/firebase.js` file and add Firebase app configration in it
 <br/>
 <br/>
 
