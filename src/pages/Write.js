@@ -32,8 +32,6 @@ const Write = () => {
   const handleClick = async e => {
     e.preventDefault();
 
-    // FIREBASE UPLOAD
-
     const fileName = new Date().getTime() + file.name;
     console.log("File Name:  " + fileName)
     const storage = getStorage(app);
@@ -68,8 +66,6 @@ const Write = () => {
         // For instance, get the download URL: https://firebasestorage.googleapis.com/...
         getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
 
-          console.log('File available at', downloadURL);
-
           // Send a new post request to backend
           try {
 
@@ -102,9 +98,6 @@ const Write = () => {
         });
       }
     );
-
-
-
   }
 
   return (
