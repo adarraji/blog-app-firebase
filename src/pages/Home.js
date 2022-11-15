@@ -31,7 +31,7 @@ const Home = () => {
           posts.map((post) => (
             < Post key={post.id} >
               <ImageContainer>
-                <Image src={`${process.env.REACT_APP_UPLOAD_URL}/${post.img}`} alt="" />
+                <Image src={post.img} alt="" />
               </ImageContainer>
               <Content>
                 <StyledLink to={`/post/${post.id}`}>
