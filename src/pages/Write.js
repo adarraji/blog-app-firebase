@@ -70,6 +70,7 @@ const Write = () => {
 
           console.log('File available at', downloadURL);
 
+          // Send a new post request to backend
           try {
 
             // If there is a state --> Update post
