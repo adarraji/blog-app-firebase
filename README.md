@@ -50,24 +50,6 @@ Create `src/firebase.js` file and add Firebase app configration in it
 <br/>
 <br/>
 
-### Server Uploads URL
-
-Add the url where the the images are stored on the server `REACT_APP_UPLOAD_URL` in:
-
-* `src/pages/Home.js`
-* `src/pages/Single.js`
-* `src/components/Menu.js`
-
-Or create .env file for React app
-
-`REACT_APP_UPLOAD_URL=http://localhost:3000/uploads`
-
-then use it like this
-
-`process.env.REACT_APP_UPLOAD_URL`
-<br/>
-<br/>
-
 ## Deployment
 Deployed on 
 
