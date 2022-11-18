@@ -46,7 +46,9 @@ then use it like this
 
 ### Firebse App Configuration File
 
-Create `src/firebase.js` file and add Firebase app configration in it
+Create `src/firebase.js` file and add Firebase app configration in it.
+
+Make sure to have `export default app` in the file.
 <br/>
 <br/>
 
