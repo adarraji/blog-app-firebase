@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import axios from "axios";
 import moment from "moment";
 import { useLocation, useNavigate } from "react-router-dom";
 import {
@@ -12,6 +11,7 @@ import {
   getDownloadURL,
 } from "firebase/storage";
 import app from "../firebase";
+import { updatePost, addPost } from "../apiCalls";
 
 
 const Write = () => {
@@ -29,9 +29,41 @@ const Write = () => {
 
   const navigate = useNavigate();
 
-  const handleClick = async e => {
-    e.preventDefault();
+  const addOrUpdatePost = async (downloadURL) => {
 
+    // Send a post request to backend
+
+    try {
+
+      // If there is a state --> Update post
+      if (state) {
+        await updatePost(state.id, {
+          title: title,
+          descr: value,
+          img: downloadURL ? downloadURL : "",
+          cat: cat,
+        });
+      }
+
+      // If there is no state --> New post 
+      else {
+        await addPost({
+          title: title,
+          descr: value,
+          img: downloadURL ? downloadURL : "",
+          cat: cat,
+          date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss")
+        });
+      }
+
+      navigate("/");
+
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  const upload = () => {
     const fileName = new Date().getTime() + file.name;
     console.log("File Name:  " + fileName)
     const storage = getStorage(app);
@@ -66,38 +98,21 @@ const Write = () => {
         // For instance, get the download URL: https://firebasestorage.googleapis.com/...
         getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
 
-          // Send a new post request to backend
-          try {
-
-            // If there is a state --> Update post
-            if (state) {
-              await axios.put(`${process.env.REACT_APP_BASE_URL}/posts/${state.id}`, {
-                title: title,
-                descr: value,
-                img: file ? downloadURL : "",
-                cat: cat,
-              }, { withCredentials: true }); // withCredentials: true is needed to send the cookie to backend
-            }
-
-            // If there is no state --> New post 
-            else {
-              await axios.post(`${process.env.REACT_APP_BASE_URL}/posts`, {
-                title: title,
-                descr: value,
-                img: file ? downloadURL : "",
-                cat: cat,
-                date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss")
-              }, { withCredentials: true }); // withCredentials: true is needed to send the cookie to backend  
-            }
-
-            navigate("/");
-
-          } catch (err) {
-            console.log(err);
-          }
+          // Send a post request to backend
+          addOrUpdatePost(downloadURL);
         });
       }
     );
+  }
+
+  const handleClick = async e => {
+    e.preventDefault();
+
+    if (file) {
+      upload();
+    } else {
+      addOrUpdatePost();
+    }
   }
 
   return (

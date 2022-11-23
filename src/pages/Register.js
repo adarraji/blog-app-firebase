@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import axios from "axios";
-
+import { addUser } from "../apiCalls";
 
 const Register = () => {
 
@@ -25,7 +24,7 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      await axios.post(`${process.env.REACT_APP_BASE_URL}/auth/register`, inputs);
+      await addUser(inputs);
       navigate("/login");
     } catch (err) {
       setError(err.response.data);

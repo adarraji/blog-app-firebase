@@ -1,6 +1,6 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { getPostsByCategory } from "../apiCalls"
 
 const Menu = ({ cat }) => {
 
@@ -9,8 +9,8 @@ const Menu = ({ cat }) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/posts?cat=${cat}`);
-                setPosts(response.data);
+                const data = await getPostsByCategory(cat);
+                setPosts(data);
             } catch (err) {
                 console.log(err);
             }
@@ -26,7 +26,7 @@ const Menu = ({ cat }) => {
                 posts.map(post => (
 
                     <Post key={post.id}>
-                        <Image src={`${process.env.REACT_APP_UPLOAD_URL}/${post?.img}`} alt="" />
+                        <Image src={post?.img} alt="" />
                         <PostTitle>{post.title}</PostTitle>
                         <Button>Read More</Button>
                     </Post>

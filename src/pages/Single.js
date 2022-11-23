@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import axios from "axios";
 import moment from "moment";
 import styled from "styled-components";
 import EditImg from "../img/edit.png";
@@ -8,6 +7,7 @@ import DeleteImg from "../img/delete.png";
 import Menu from "../components/Menu";
 import { AuthContext } from "../context/authContext";
 import parse from "html-react-parser";
+import { getPost, deletePost } from "../apiCalls";
 
 
 const Single = () => {
@@ -23,8 +23,8 @@ const Single = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/posts/${postId}`);
-        setPost(response.data);
+        const data = await getPost(postId);
+        setPost(data);
       } catch (err) {
         console.log(err);
       }
@@ -35,17 +35,16 @@ const Single = () => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`${process.env.REACT_APP_BASE_URL}/posts/${postId}`, { withCredentials: true }); // withCredentials: true is needed to send the cookie to backend
+      await deletePost(postId);
       navigate("/");
     } catch (err) {
       console.log(err)
     }
   }
-
   return (
     <Container>
       <Content>
-        <ProductImage src={post.img && `${process.env.REACT_APP_UPLOAD_URL}/${post.img}`} alt="" />
+        <ProductImage src={post.img && post.img} alt="" />
         <User>
           <UserImage src="https://dummyjson.com/image/i/products/30/1.jpg" alt="" />
           <Info>

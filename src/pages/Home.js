@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
-import axios from "axios";
 import parse from "html-react-parser";
-
+import { getPosts } from "../apiCalls";
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
@@ -13,8 +12,8 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/posts/${cat}`);
-        setPosts(response.data);
+        const data = await getPosts();
+        setPosts(data);
       } catch (err) {
         console.log(err);
       }
