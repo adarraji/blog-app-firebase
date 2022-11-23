@@ -41,7 +41,7 @@ const Login = () => {
         <Button onClick={handleSubmit}>Login</Button>
         {err && <Error>{err}</Error>}
         <LinkToPage>
-          Don't have an account ? <Link to="register">Register</Link>
+          Don't have an account ? <Link to="/register">Register</Link>
         </LinkToPage>
       </Form>
     </Container>

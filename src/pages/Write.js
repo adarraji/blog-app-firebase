@@ -105,7 +105,7 @@ const Write = () => {
     );
   }
 
-  const handleClick = async e => {
+  const handleClick = e => {
     e.preventDefault();
 
     if (file) {
