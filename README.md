@@ -2,7 +2,7 @@
 
 Blog application using React. 
 
-On home page all posts are fetched from PostgreSQL database. 
+On the home page all posts are fetched from PostgreSQL database. 
 
 Users can register, login and logout.
 
