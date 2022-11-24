@@ -37,6 +37,7 @@ To run the application
 2. Run `npm install`
 3. Run `npm start`
 
+
 ## Environmental Variables
 
 ### Server Base URL
