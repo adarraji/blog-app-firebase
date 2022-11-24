@@ -69,7 +69,7 @@ export const posts = [
     {
         "id": 12,
         "title": "Brown Perfume",
-        "descr": "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
+        "descr": "cRoyal_Mirage Sport Brown Perfume for Men & Women - 120ml",
         "img": "https://dummyjson.com/image/i/products/12/1.jpg",
     },
     {

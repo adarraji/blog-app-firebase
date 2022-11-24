@@ -1,7 +1,10 @@
 # React Blog App
 
-Blog application using React. You can find the Node.js/PostgreSQL REST API backend [here](https://github.com/adarraji/blog-app-api-firebase)
+Blog application using React. 
 
+You can see the website [here](https://blog-app-firebase.netlify.app/)
+
+You can find the Node.js/PostgreSQL REST API backend [here](https://github.com/adarraji/blog-app-api-firebase)
 
 On the home page all posts are fetched from PostgreSQL database. 
 
@@ -82,3 +85,30 @@ You can see the website [here](https://blog-app-firebase.netlify.app/)
 ## Deploy status
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/8e70f914-d8c4-4c25-a3a3-b46dec6f31d7/deploy-status)](https://app.netlify.com/sites/blog-app-firebase/deploys)
+
+
+## Screenshots
+<br />
+
+### Home Page
+
+<br />
+
+![Image 1](./images/image-01.png)
+<br />
+
+![Image 2](./images/image-02.png)
+<br />
+
+![Image 3](./images/image-03.png)
+<br />
+
+![Image 4](./images/image-04.png)
+<br />
+
+![Image 4](./images/image-04.png)
+<br />
+
+<br />
+<br />
+<br />
