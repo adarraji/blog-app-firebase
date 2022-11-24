@@ -1,6 +1,6 @@
 # React Blog App
 
-Blog application using React. You can find the Node.js/PstgreSQL REST API backend [here](https://github.com/adarraji/blog-app-api-firebase)
+Blog application using React. You can find the Node.js/PostgreSQL REST API backend [here](https://github.com/adarraji/blog-app-api-firebase)
 
 
 On the home page all posts are fetched from PostgreSQL database. 
