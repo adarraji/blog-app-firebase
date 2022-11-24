@@ -1,6 +1,7 @@
 # React Blog App
 
-Blog application using React. 
+Blog application using React. You can find the Node.js/PstgreSQL REST API backend [here](https://github.com/adarraji/blog-app-api-firebase)
+
 
 On the home page all posts are fetched from PostgreSQL database. 
 
@@ -14,7 +15,6 @@ Users can create/edit posts, upploaded images, select/change category and publis
 
 The image files are being stored in Firebase
 
-You can find the Node.js/PstgreSQL REST API backend [here](https://github.com/adarraji/blog-app-api-firebase)
 
 ## Built With
 
