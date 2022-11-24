@@ -65,7 +65,7 @@ then use it like this
 <br/>
 
 
-### Firebse App Configuration File
+### Firebse App Configuration
 
 Add Firebase configuration variables in `src/firebase.js`.
 <br/>
