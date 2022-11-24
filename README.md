@@ -51,9 +51,16 @@ Add Firebase configuration variables in `src/firebase.js`.
 <br/>
 
 ## Deployment
-Deployed on 
+
+Deployed on [Netlify](https://netlify.com)
+You can see the website [here](https://blog-app-firebase.netlify.app/)
 
 
-## Authors
+## Authors  
 
 - **Ali Darraji** - [https://github.com/adarraji](https://github.com/adarraji)
+
+
+## Deploy status
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8e70f914-d8c4-4c25-a3a3-b46dec6f31d7/deploy-status)](https://app.netlify.com/sites/blog-app-firebase/deploys)
