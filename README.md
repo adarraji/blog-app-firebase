@@ -27,7 +27,7 @@ The image files are being stored in Firebase
 * React Hooks
 * React Context API 
 * Firebase
-<br/>
+
 
 ## Running the Application
 
