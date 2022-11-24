@@ -1,11 +1,20 @@
 # React Blog App
 
-To run the application
+Blog application using React. 
 
-1. Clone this repo
-2. Run `npm install`
-3. Run `npm start`
-<br/>
+On home page all posts are fetched from PostgreSQL database. 
+
+Users can register, login and logout.
+
+When you click on a post, you get a single post details, user information and a side bar that recommends similar posts. 
+
+The owner of the post can edit or delete the post after login. 
+
+Users can create/edit posts, upploaded images, select/change category and publish posts.  
+
+The image files are being stored in Firebase
+
+You can find the Node.js/PstgreSQL REST API backend [here](https://github.com/adarraji/blog-app-api-firebase)
 
 ## Built With
 
@@ -19,6 +28,14 @@ To run the application
 * React Context API 
 * Firebase
 <br/>
+
+## Running the Application
+
+To run the application
+
+1. Clone this repo
+2. Run `npm install`
+3. Run `npm start`
 
 ## Environmental Variables
 
