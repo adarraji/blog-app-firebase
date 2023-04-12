@@ -26,7 +26,7 @@ const Home = () => {
   return (
     <Container>
       <PostsContainer>
-        {
+        { posts &&
           posts.map((post) => (
             < Post key={post.id} >
               <ImageContainer>
